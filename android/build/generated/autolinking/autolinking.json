@@ -1,8 +1,36 @@
 {
-  "root": "C:\\dev\\git\\centernetwork\\centernetwork-app-frontend",
-  "reactNativePath": "C:\\dev\\git\\centernetwork\\centernetwork-app-frontend\\node_modules\\react-native",
-  "reactNativeVersion": "0.78",
-  "dependencies": {},
+  "root": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper",
+  "reactNativePath": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper\\node_modules\\react-native",
+  "reactNativeVersion": "0.80",
+  "dependencies": {
+    "react-native-webview": {
+      "root": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper\\node_modules\\react-native-webview",
+      "name": "react-native-webview",
+      "platforms": {
+        "ios": {
+          "podspecPath": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper\\node_modules\\react-native-webview\\react-native-webview.podspec",
+          "version": "13.15.0",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper\\node_modules\\react-native-webview\\android",
+          "packageImportPath": "import com.reactnativecommunity.webview.RNCWebViewPackage;",
+          "packageInstance": "new RNCWebViewPackage()",
+          "buildTypes": [],
+          "libraryName": "RNCWebViewSpec",
+          "componentDescriptors": [
+            "RNCWebViewComponentDescriptor"
+          ],
+          "cmakeListsPath": "C:/dev/git/centernetwork/centernetwork-app-wrapper/node_modules/react-native-webview/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    }
+  },
   "commands": [
     {
       "name": "bundle",
@@ -165,7 +193,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "C:\\dev\\git\\centernetwork\\centernetwork-app-frontend"
+          "default": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper"
         },
         {
           "name": "--platform <string>",
@@ -281,6 +309,10 @@
           "description": "Force CocoaPods installation"
         },
         {
+          "name": "--only-pods",
+          "description": "Only install Cocoapods, do not build the app"
+        },
+        {
           "name": "--device [string]",
           "description": "Explicitly set the device to use by name or by unique device identifier . If the value is not provided,the app will run on the first available physical device."
         }
@@ -335,6 +367,10 @@
         {
           "name": "--force-pods",
           "description": "Force CocoaPods installation"
+        },
+        {
+          "name": "--only-pods",
+          "description": "Only install Cocoapods, do not build the app"
         },
         {
           "name": "--device [string]",
@@ -457,16 +493,16 @@
   "assets": [],
   "project": {
     "ios": {
-      "sourceDir": "C:\\dev\\git\\centernetwork\\centernetwork-app-frontend\\ios",
+      "sourceDir": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper\\ios",
       "xcodeProject": {
-        "name": "CenterNetwork.xcodeproj",
+        "name": "centernetwork.xcodeproj",
         "path": ".",
         "isWorkspace": false
       },
       "assets": []
     },
     "android": {
-      "sourceDir": "C:\\dev\\git\\centernetwork\\centernetwork-app-frontend\\android",
+      "sourceDir": "C:\\dev\\git\\centernetwork\\centernetwork-app-wrapper\\android",
       "appName": "app",
       "packageName": "com.centernetwork",
       "applicationId": "com.centernetwork",
