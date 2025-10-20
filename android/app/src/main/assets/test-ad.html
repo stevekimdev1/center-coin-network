@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdMob 테스트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e7f3ff;
+            border: 1px solid #b3d9ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AdMob 동영상 광고 테스트</h2>
+        <p>아래 버튼을 클릭하면 풀스크린 동영상 광고가 표시됩니다.</p>
+        
+        <button class="button" onclick="showAd()">
+            동영상 광고 보기
+        </button>
+        
+        <div class="status" id="status">
+            광고를 시청하면 여기에 상태가 표시됩니다.
+        </div>
+    </div>
+
+    <script>
+        // 네이티브에서 메시지 받기
+        document.addEventListener('message', function(event) {
+            const data = JSON.parse(event.data);
+            const statusDiv = document.getElementById('status');
+            
+            if (data.type === 'AD_COMPLETED') {
+                statusDiv.innerHTML = '✅ 광고 시청 완료! 리워드를 받았습니다.';
+                statusDiv.style.backgroundColor = '#d4edda';
+                statusDiv.style.borderColor = '#c3e6cb';
+            } else if (data.type === 'AD_CLOSED') {
+                statusDiv.innerHTML = '❌ 광고가 닫혔습니다.';
+                statusDiv.style.backgroundColor = '#f8d7da';
+                statusDiv.style.borderColor = '#f5c6cb';
+            } else if (data.type === 'AD_ERROR') {
+                statusDiv.innerHTML = '⚠️ 광고 오류: ' + data.error;
+                statusDiv.style.backgroundColor = '#fff3cd';
+                statusDiv.style.borderColor = '#ffeaa7';
+            }
+        });
+
+        // 광고 표시 함수 (이미 injectedJavaScript에서 정의됨)
+        function showAd() {
+            if (typeof window.showAd === 'function') {
+                window.showAd();
+            } else {
+                alert('광고 기능이 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.');
+            }
+        }
+    </script>
+</body>
+</html>
